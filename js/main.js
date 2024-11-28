@@ -2494,3 +2494,33 @@ if(footer){
   for (let elm of footerinfo) {footerinfoserv.observe(elm);}
 }
 // end index animation
+
+// start stack_scroll__list
+const stack_scrolllist = document.querySelector('.stack_scroll__list');
+if (stack_scrolllist) {
+  const stack_scrolllists = document.querySelectorAll('.stack_scroll__list');
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.querySelectorAll(".stack_scroll__item").length <= 1) {
+      [...document.querySelectorAll('.stack_scroll__block')].map((n, i) => {
+        let l = stack_scrolllists[i].innerHTML;
+        n.querySelector('.stack_scroll__list').innerHTML = l + l + l + l + l + l + l + l
+      })
+    } else if (document.querySelectorAll(".stack_scroll__item").length <= 2) {
+      [...document.querySelectorAll('.stack_scroll__block')].map((n, i) => {
+        let l = stack_scrolllists[i].innerHTML;
+        n.querySelector('.stack_scroll__list').innerHTML = l + l + l + l
+      })
+    } else if (document.querySelectorAll(".stack_scroll__item").length <= 3) {
+      [...document.querySelectorAll('.stack_scroll__block')].map((n, i) => {
+        let l = stack_scrolllists[i].innerHTML;
+        n.querySelector('.stack_scroll__list').innerHTML = l + l + l + l
+      })
+    } else if (document.querySelectorAll(".stack_scroll__item").length <= 17) {
+      [...document.querySelectorAll('.stack_scroll__block')].map((n, i) => {
+        let l = stack_scrolllists[i].innerHTML;
+        n.querySelector('.stack_scroll__list').innerHTML = l + l
+      })
+    }
+  });
+}
+// end stack_scroll__list
