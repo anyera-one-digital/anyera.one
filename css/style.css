@@ -197,11 +197,11 @@ h5,
   color: var(--text);
 }
 
-h2 {
+h2, .title_two  {
   font-family: var(--title-font);
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 700;
-  line-height: 52px;
+  line-height: 124%;
   color: var(--text);
 }
 
@@ -286,10 +286,17 @@ small {
 }
 
 .body_long {
-  font-family: Rubik;
-  font-weight:400;
+  font-family: var(--text-font);
+  font-weight: 400;
   font-size: 16px;
   line-height: 145%;
+}
+
+.rubik {
+  font-family: var(--text-font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
 }
 
 b,
@@ -1055,22 +1062,18 @@ section {
   display: flex;
   width: 35px;
   height: 35px;
-  border: 1px solid var(--text);
   justify-content: center;
   align-items: center;
   position: absolute;
   backface-visibility: hidden;
+  background-color:#00000000;
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
 }
 
-.btn__side svg {
-  width: 10px;
-  height: 10px;
-}
+
 
 .btn__side_default {
-  background-color: var(--text);
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
@@ -4108,7 +4111,7 @@ html.has-scroll-dragging {
 
 .expertise__left {
   width: 50%;
-  padding: 80px;
+  padding: 80px 80px 80px 0 ;
 }
 
 .expertise__right {
@@ -4136,7 +4139,7 @@ html.has-scroll-dragging {
 }
 
 .expertise__button:not(:first-child) {
-  margin: 20px 0 0;
+  margin: 20px 0;
 }
 
 .expertise__button {
@@ -4159,12 +4162,11 @@ html.has-scroll-dragging {
 .expertise__btn {
   flex: 0 0 auto;
   color: var(--bg);
-  background-color: var(--text);
 }
 
 .expertise__btn .btn__side.btn__side_hover svg {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .expertise__panel {
@@ -4183,6 +4185,11 @@ html.has-scroll-dragging {
   overflow: hidden;
   -webkit-transition: max-height 0.5s linear, padding 0.5s linear;
   transition: max-height 0.5s linear, padding 0.5s linear;
+}
+
+.expertise__panel p {
+  width: 100%;
+  max-width: 550px;
 }
 
 .expertise__panel.active {
@@ -4210,16 +4217,14 @@ html.has-scroll-dragging {
   gap: 20px;
 }
 
-.expertise__panel p,
-.expertise__panel ul,
-.expertise__panel span,
-.expertise__desc,
+.expertise__head {
+  text-transform: uppercase;
+}
+
 .projects__desc,
 .project__desc,
 .team__bottom_desc,
 .team_slider__desc,
-.services_top__desc,
-.services__desc,
 .briefing__desc,
 .error_page__desc,
 .policy__desc,
@@ -4241,11 +4246,7 @@ html.has-scroll-dragging {
 
 .team__bottom_desc::before,
 .project__desc::before,
-.expertise__desc::before,
-.expertise__panel p::before,
 .team_slider__desc::before,
-.services_top__desc::before,
-.services__desc::before,
 .briefing__desc::before,
 .error_page__desc::before,
 .policy__desc::before,
@@ -4290,6 +4291,11 @@ html.has-scroll-dragging {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.expertise__desc {
+  width: 100%;
+  max-width: 425px;
 }
 
 .expertise__description {
@@ -4341,25 +4347,6 @@ html.has-scroll-dragging {
   top: 0;
   left: 0;
   bottom: 0;
-}
-
-.expertise__border::after {
-  content: "";
-  display: block;
-  width: 100%;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.expertise__border::after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: 60px;
-  border-top: 1px solid var(--border);
 }
 
 /* end expertise */
@@ -6467,15 +6454,12 @@ html.has-scroll-dragging {
 
 /* start services */
 
-.services {
-  border-top: 1px solid var(--border);
-}
 
 .services_top__block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 160px 80px;
+  padding: 116px 0 55px 150px;
   margin: 0 2px;
   gap: 160px;
   overflow: hidden;
@@ -6486,9 +6470,7 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: calc(50% - 80px);
-  flex-direction: column;
-  gap: 40px;
+  gap: 25px;
 }
 
 .services_top__image {
@@ -6512,35 +6494,53 @@ html.has-scroll-dragging {
 }
 
 .services__block {
-  border-bottom: 1px solid var(--border);
   position: relative;
   z-index: 1;
 }
 
-.services__block:first-child {
-  border-top: 1px solid var(--border);
-}
 
 .services__flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: calc(100% - 4px);
-  padding: 80px;
+  min-height: 264px;
+  padding: 55px 36px;
   margin: 0 2px;
-  align-items: center;
+  border-radius: 0px;
   gap: 160px;
   position: relative;
   background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  -webkit-transition: 0.2s border-radius 0.1s linear, background-color 0.2s ease;
+  transition: 0.2s border-radius 0.1s linear, background-color 0.2s ease;
+}
+
+.services__block:first-child .services__flex {
+  border-top: 1px solid var(--border);
+}
+
+.services__block:hover {
+  background-color: var(--bg);
+  margin: -1px 0 0;
+}
+
+.services__block .services__flex:hover {
+  border-radius: 44px;
+  background-color: #262626;
+  border-top: none;
+  border-bottom: none;
+  -webkit-transition:  border-radius 0.1s linear, 0.2s background-color 0.2s ease;
+  transition:  border-radius 0.1s linear, 0.2s background-color 0.2s ease;
 }
 
 .services__left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: calc(50% - 80px);
+  width: 100%;
   flex-direction: column;
-  gap: 40px;
+  gap: 15px;
 }
 
 .services__right {
@@ -6558,7 +6558,68 @@ html.has-scroll-dragging {
   display: flex;
   width: calc(50% - 80px);
   flex-direction: column;
-  gap: 30px;
+  gap: 2px;
+}
+.services__list_left { 
+  width: 100%;
+}
+
+.services__number {
+  font-family: var(--title-font);
+  font-weight: 400;
+  font-size: 78px;
+  line-height: -1px;
+  color: #D0D0D0;
+  transition: color 0.2s ;
+}
+
+.services__arrow {
+  width: 30%;
+  display: flex;
+  justify-content: end;
+  align-self: baseline;
+  transform: 0;
+}
+.services__arrow svg {
+  -webkit-transform: 0;
+  transform: 0;
+  -webkit-transition: transform 0.2s linear;
+  transition: transform 0.2s linear;
+}
+
+.services__flex:hover .services__number ,
+.services__flex:hover .services__head{
+  color: var(--bg);
+  -webkit-transition: color 0.2s linear;
+  transition: color 0.2s linear;
+}
+.services__flex:hover .services__arrow svg{
+  transform: rotate(45deg);
+  -webkit-transition: transform 0.2s linear;
+  transition: transform 0.2s linear;
+}
+.services__arrow svg path {
+  -webkit-transition: stroke 0.2s linear;
+  transition: stroke 0.2s linear;
+}
+.services__flex:hover .services__arrow svg path{
+  stroke: var(--bg);
+  -webkit-transition: stroke 0.2s linear;
+  transition: stroke 0.2s linear;
+}
+.services__img {
+  position: absolute;
+  right: 380px;
+  bottom: 0;
+}
+
+section.services {
+  overflow: visible;
+}
+
+.services__head {
+  text-transform: uppercase;
+  transition: color 0.2s linear;
 }
 
 .services__list_left {
@@ -6631,6 +6692,83 @@ html.has-scroll-dragging {
   transition-delay: 0.5s;
 }
 
+.services_top__left {
+  width: 80px;
+  text-transform: uppercase;
+}
+
+.services_top__left p {
+  color: var(--primary-dark)
+}
+
+.services_top__head {
+  text-transform: uppercase;
+  color: var(--primary-dark)
+}
+
+.services_top__desc {
+  width: 100%;
+  max-width: 650px;
+  padding: 20px 0 0;
+  color: var(--secondary-dark)
+}
+
+.services_top__right {
+  width: 100%;
+  max-width: 750px;
+}
+.services__desc {
+  width: 100%;
+  max-width: 475px;
+}
+
+.services__list_left {
+  display: none
+}
+
+.services__flex:hover .services__list_left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.services__list_left li p{
+  color: var(--bg);
+  -webkit-transition: color 0.4s linear;
+  transition: color 0.4s linear;
+}
+.services__flex:hover .services__list_left li p{
+  transition: color 0.4s linear;
+}
+
+.services__img {
+  opacity: 0;
+}
+.services__flex:hover .services__img {
+  opacity: 1;
+  -webkit-transition: 0.2s opacity 0.2s linear;
+  transition: 0.2s opacity 0.2s linear;
+}
+
+.services__flex:hover .services__desc{
+  display: none;
+}
+
+.services__item {
+  padding: 0 0 0 10px;
+  position: relative;
+}
+
+.services__item::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 1px;
+  background-color: var(--bg);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-100%);
+}
 /* end services */
 
 /* start briefing */
@@ -9540,9 +9678,9 @@ html.has-scroll-dragging {
     font-size: 61px;
     line-height: 62px;
   }
-  h2 {
-    font-size: 48px;
-    line-height: 52px;
+  h2,.title_two {
+    font-size: 36px;
+    line-height: 124%;
   }
   h3 {
     font-size: 39px;
@@ -9831,14 +9969,8 @@ html.has-scroll-dragging {
   .team_comments__swiper {
     width: calc(50% - 10px);
   }
-  .services_top__block {
-    padding: 140px 60px;
-    gap: 120px;
-  }
-  .services_top__info,
-  .services__left,
+
   .services__right,
-  .services__list_left,
   .services__list_right,
   .subscription__form {
     width: calc(50% - 60px);
@@ -9856,6 +9988,19 @@ html.has-scroll-dragging {
   .services__buttons {
     padding: 60px 0 0;
   }
+  .services__img {
+    right: 160px;
+  }
+  .services_top__block {
+    padding: 140px 0 55px 290px;
+  }
+  .services__left {
+    padding: 0px 0 0 35px;
+}
+  .services__container,
+  .expertise__container {
+    padding: 0 170px;
+  } 
   .briefing__block {
     padding: 120px 60px;
     gap: 120px;
@@ -10089,6 +10234,21 @@ html.has-scroll-dragging {
 /* end 1919px */
 
 /* start 1439px */
+@media (max-width: 1680px) {
+  .services__container,
+  .expertise__container {
+    padding: 0 55px;
+  }
+  .services__img {
+    right: 110px;
+  }
+  .services__left {
+    padding: 0px 0 0 160px;
+  }
+}
+
+/* end 1919px */
+/* start 1439px */
 @media (max-width: 1439px) {
   .team__bottom_heading {
     font-size: 120px;
@@ -10100,8 +10260,8 @@ html.has-scroll-dragging {
     font-size: 61px;
     line-height: 62px;
   }
-  h2 {
-    font-size: 48px;
+  h2, .title_two {
+    font-size: 36px;
     line-height: 52px;
   }
   h3 {
@@ -10298,9 +10458,6 @@ html.has-scroll-dragging {
   .expertise {
     padding: 30px 0 0;
   }
-  .expertise__block {
-    flex-direction: column-reverse;
-  }
   .expertise__left,
   .expertise__right {
     width: 100%;
@@ -10312,16 +10469,10 @@ html.has-scroll-dragging {
   .expertise__head {
     padding: 0;
   }
-  .expertise__panel p,
-  .expertise__panel ul,
-  .expertise__panel span,
-  .expertise__desc,
   .projects__desc,
   .project__desc,
   .team__bottom_desc,
   .team_slider__desc,
-  .services_top__desc,
-  .services__desc,
   .briefing__desc,
   .error_page__desc,
   .policy__desc,
@@ -10515,13 +10666,8 @@ html.has-scroll-dragging {
   .team__bottom_info {
     width: 100%;
   }
-  .services_top__block {
-    padding: 60px 30px;
-    gap: 60px;
-  }
-  .services_top__info,
+
   .services__right,
-  .services__list_left,
   .services__list_right,
   .subscription__form {
     width: calc(50% - 30px);
@@ -10532,29 +10678,33 @@ html.has-scroll-dragging {
     width: calc(50% - 30px);
     left: calc(50% + 30px);
   }
-  .services__left {
-    width: 100%;
-    flex-direction: row;
-  }
-  .services__flex {
-    padding: 40px 30px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 60px;
-  }
   .services__buttons {
     padding: 0;
     position: absolute;
     right: 30px;
     bottom: 40px;
   }
-  .services__head {
-    width: 40%;
-    flex: 0 0 auto;
+  .services_top__block {
+    padding: 116px 0 55px 77px;
   }
-  .services__desc {
-    max-width: 60%;
-    height: max-content;
+  .services_top__right {
+    max-width: 750px;
+  } 
+  .services__flex {
+    padding: 54px 36px;
+    gap: 80px;
+  }
+  .services__left {
+    padding: 0;
+  }
+  .services__img {
+    width: 262px;
+    height: 262px;
+    right: 100px;
+  }
+  .services__img img{
+    width: 100%;
+    height: 100%;
   }
   .briefing__block {
     padding: 60px 30px;
@@ -10938,9 +11088,10 @@ html.has-scroll-dragging {
     line-height: 62px;
   }
   h2,
-  .team__top_head {
-    font-size: 42px;
-    line-height: 50px;
+  .team__top_head,
+  .title_two {
+    font-size: 24px;
+    line-height: 124%;
   }
   h3 {
     font-size: 34px;
@@ -11293,16 +11444,10 @@ html.has-scroll-dragging {
   .expertise__right {
     padding: 20px;
   }
-  .expertise__panel p,
-  .expertise__panel ul,
-  .expertise__panel span,
-  .expertise__desc,
   .projects__desc,
   .project__desc,
   .team__bottom_desc,
   .team_slider__desc,
-  .services_top__desc,
-  .services__desc,
   .briefing__desc,
   .error_page__desc,
   .policy__desc,
@@ -11426,21 +11571,26 @@ html.has-scroll-dragging {
     height: 600px;
   }
   .services__flex {
-    padding: 30px 20px;
-    gap: 20px;
+    gap: 25px;
+  }
+  .services__img {
+    width: 181px;
+    height: 181px;
+    top: 35px;
   }
   .services_top__block {
-    padding: 40px 20px;
-    gap: 20px;
+    padding: 116px 0 50px 18px;
   }
+  .services_top__right {
+    max-width: 481px;
+  }
+
   .services_top__image,
   .briefing__form_end,
   .subscription__image {
     width: calc(50% - 10px);
     left: calc(50% + 10px);
   }
-  .services_top__info,
-  .services__list_left,
   .services__list_right {
     width: calc(50% - 10px);
     gap: 20px;
@@ -11449,17 +11599,10 @@ html.has-scroll-dragging {
     width: 100%;
     gap: 20px;
   }
-  .services__left {
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
   .services__head {
     width: 100%;
   }
-  .services__desc {
-    width: 50%;
-  }
+
   .services__buttons {
     position: relative;
     right: 0;
@@ -11935,6 +12078,34 @@ html.has-scroll-dragging {
   .projects__image {
     height: 400px;
   }
+
+  .services_top__info {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .services_top__desc {
+    padding: 46px 0 0;
+  }
+
+  .services__flex {
+    flex-direction: column;
+  }
+
+  .services__arrow {
+    position: absolute;
+    right: 36px;
+    top: 36px;
+  }
+  .services__desc {
+    max-width: 330px;
+  }
+  .services__img {
+    top: -41px;
+    right: 80px;
+  }
+  .expertise__block {
+    flex-direction: column-reverse;
+  }
 }
 /* end 767px */
 
@@ -11950,9 +12121,9 @@ html.has-scroll-dragging {
     font-size: 38px;
     line-height: 38px;
   }
-  h2 {
-    font-size: 36px;
-    line-height: 41px;
+  h2, .title_two {
+    font-size: 24px;
+    line-height: 124%;
   }
   h3,
   .team__top_head {
@@ -12060,16 +12231,10 @@ html.has-scroll-dragging {
   .header__set_mode {
     width: 100%;
   }
-  .expertise__panel p,
-  .expertise__panel ul,
-  .expertise__panel span,
-  .expertise__desc,
   .projects__desc,
   .project__desc,
   .team__bottom_desc,
   .team_slider__desc,
-  .services_top__desc,
-  .services__desc,
   .briefing__desc,
   .error_page__desc,
   .policy__desc,
@@ -12190,9 +12355,6 @@ html.has-scroll-dragging {
   }
   .services__flex {
     padding: 30px 20px 90px;
-  }
-  .services__desc {
-    width: 100%;
   }
   .services__buttons {
     position: absolute;
